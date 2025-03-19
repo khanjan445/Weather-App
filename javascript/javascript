@@ -1,5 +1,0 @@
-<div class="weather-info">
- <p id="city-name"></p>
- <p id="temperature"></p>
- <p id="weather-description"></p>
- </div>
