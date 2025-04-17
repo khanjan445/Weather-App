@@ -13,8 +13,8 @@ function fetchWeatherData(city) {
     console.log(`Fetching weather data for: ${city}`);
 }
 async function fetchWeatherData(city) {
-    const apiKey = '00437b44a85e4337ae0225428251903';
-    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    const apiKey = 'b3c06fba3d181a4c37668c7a8ff00021';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     try {
         const response = await fetch(apiUrl);
@@ -25,11 +25,11 @@ async function fetchWeatherData(city) {
 
         const data = await response.json();
         console.log('Weather data:', data);
-        document.getElementById("city-name").innerHTML = `<strong>City:</strong> ${data.name}`
-        document.getElementById("humidity").innerHTML = `<strong>Humidity:</strong> ${data.main.Humidity}`
-        document.getElementById("pressure").innerHTML = `<strong>Pressure:</strong> ${data.main.pressure}`
-        document.getElementById("temperature").innerHTML = `<strong>Temperature:</strong> ${data.main/temp}`
-        document.getElementById("weather-description").innerHTML = `<strong>Description:</strong> ${data.weather[0].description}`
+        document.getElementById("city-name").innerHTML = `<strong>City:</strong> ${data.name}`;
+        document.getElementById("humidity").innerHTML = `<strong>Humidity:</strong> ${data.main.humidity}`;
+        document.getElementById("pressure").innerHTML = `<strong>Pressure:</strong> ${data.main.pressure}`;
+        document.getElementById("temperature").innerHTML = `<strong>Temperature:</strong> ${data.main.temp}`;
+        document.getElementById("weather-description").innerHTML = `<strong>Description:</strong> ${data.weather[0].description}`;
     } catch (error) {
         console.error('Error fetching weather data:', error);
     }
